@@ -1,0 +1,41 @@
+{
+  "name": "clean-ns",
+  "version": "1.0.0",
+  "description": "clean node_modules",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "precommit": "npm run build && lint-staged && git add -A"
+  },
+  "bin": {
+    "clean-ns": "./bin/clean-ns"
+  },
+  "lint-staged": {
+    "src/*.js": [
+      "prettier --write --tab-width 4 --no-semi",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/runtime": "^7.2.0",
+    "chalk": "^2.3.2",
+    "cli-spinner": "^0.2.8",
+    "commander": "^2.15.1",
+    "execa": "^0.10.0",
+    "fs-extra": "^5.0.0",
+    "inquirer": "^5.2.0",
+    "moment": "^2.22.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.3.0",
+    "prettier": "^1.11.x"
+  },
+  "license": "MIT"
+}
